@@ -12,7 +12,18 @@
     <title>Game</title>
 </head>
 <body>
-<h1><%="Hello"%></h1>
-<output>${Hello}</output>
+<h1>${question}</h1>
+<c:if test="${finish == false}">
+<form action="${pageContext.request.contextPath}/game" method="post">
+    <c:forEach items="${answers}" var="answer" varStatus="loop">
+        <input required type="radio" name="nextQuestion" value="${loop.index}"> ${answer}
+        <br>
+    </c:forEach>
+    <button type="submit">Выбрать</button>
+</form>
+</c:if>
+<c:if test="${finish == true}">
+    <h1>Конец игры!</h1>
+</c:if>
 </body>
 </html>

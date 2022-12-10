@@ -21,9 +21,9 @@
 <h2><%= prologue%></h2>
 <h3><%= "Знакомство с экипажем" %></h3>
 <h4><%= acquaintance%></h4>
-<form action="/startrek777_war_exploded/game" method="post"  >
+<form action="${pageContext.request.contextPath}/index" method="post" >
     <input type="text" name="name">
-    <button onclick="location.href='/game'">Представиться</button>
+    <input type="submit" value="Представиться">
 </form>
 </body>
 </html>
