@@ -10,8 +10,10 @@
 <html>
 <head>
     <title>Game</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/css/bootstrap.css">
 </head>
 <body>
+<div class="p-3 mb-2 bg-warning text-dark">
 <h1>${question}</h1>
 <c:if test="${finish == false}">
 <form action="${pageContext.request.contextPath}/game" method="post">
@@ -24,6 +26,21 @@
 </c:if>
 <c:if test="${finish == true}">
     <h1>Конец игры!</h1>
+    <form action="${pageContext.request.contextPath}/game" method="post" >
+        <input type="submit" value="Попробовать еще раз">
+    </form>
 </c:if>
+    <img src="img/nlo.jpg" class="rounded mx-auto d-block"/>
+<br>
+
+<div class="card" style="width: 18rem;>
+    <h5 class="card-header">Статистика:</h5>
+    <div class="card-body">
+        <p class="card-text">Имя: ${name}</p>
+        <p class="card-text">Ip: ${ip}</p>
+        <p class="card-text">Кол-во игр: ${numberOfGames}</p>
+    </div>
+    </div>
 </body>
+</div>
 </html>

@@ -1,4 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+<%@ page pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8");%>
 <%
     String prologue = "Ты стоишь в космическом порту и готов подняться на борт <br>" +
             "своего коробля. Разве ты не об этом мечтал? Стать капитаном <br>" +
@@ -15,15 +18,19 @@
 <html>
 <head>
     <title>Star_Trek</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/css/bootstrap.css">
 </head>
 <body>
-<h1><%= "Пролог" %></h1>
-<h2><%= prologue%></h2>
+<div class="p-3 mb-2 bg-info text-dark">
+<h3><%= "Пролог" %></h3>
+<h5><%= prologue%></h5>
 <h3><%= "Знакомство с экипажем" %></h3>
-<h4><%= acquaintance%></h4>
+<h5><%= acquaintance%></h5>
 <form action="${pageContext.request.contextPath}/index" method="post" >
     <input type="text" name="name">
-    <input type="submit" value="Представиться">
+    <input type="submit" value="Представиться" class="btn btn-success">
+    <img src="img/NLO.gif" class="rounded mx-auto d-block"/>
 </form>
+</div>
 </body>
 </html>

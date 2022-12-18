@@ -1,29 +1,6 @@
 package com.example.startrek777;
 
-import lombok.Builder;
-import lombok.Data;
-
 import java.util.List;
-
-
-@Builder
-@Data
-class Question {
-    private String text;
-    private List<Answer> answers;
-    private boolean isWinner;
-    private boolean isLooser;
-
-}
-
-@Builder
-@Data
-class Answer {
-    private String text;
-    private Question nextQuestion;
-
-}
-
 
 public class Dialog {
     Question q1 = Question.builder()
@@ -88,8 +65,3 @@ public class Dialog {
             ))
             .build();
 }
-
-
-
-
-
