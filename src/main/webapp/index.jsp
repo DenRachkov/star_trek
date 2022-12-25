@@ -27,7 +27,7 @@
 <h3><%= "Знакомство с экипажем" %></h3>
 <h5><%= acquaintance%></h5>
 <form action="${pageContext.request.contextPath}/index" method="post" >
-    <input type="text" name="name">
+    <input type="text" name="name" required>
     <input type="submit" value="Представиться" class="btn btn-success">
     <img src="img/NLO.gif" class="rounded mx-auto d-block"/>
 </form>

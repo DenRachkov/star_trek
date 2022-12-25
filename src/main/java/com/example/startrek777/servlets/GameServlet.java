@@ -1,8 +1,11 @@
-package com.example.startrek777;
+package com.example.startrek777.servlets;
 
 
+import com.example.startrek777.Answer;
+import com.example.startrek777.Dialog;
+import com.example.startrek777.Question;
+import com.example.startrek777.User;
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +20,8 @@ import static java.util.Objects.isNull;
 
 @WebServlet(name = "GameServlet", value = "/game")
 public class GameServlet extends HttpServlet {
+
+    //private static final Logger logger = LogManager.getLogger(GameServlet.class );
     private Question start;
     private boolean finish;
     private int numberOfGames;
@@ -26,7 +31,6 @@ public class GameServlet extends HttpServlet {
         super.init(config);
 
     }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -40,15 +44,14 @@ public class GameServlet extends HttpServlet {
             for (Answer answer : start.getAnswers()) {
                 answers.add(answer.getText());
             }
-
         }
+
         User user = (User) req.getSession().getAttribute("user");
         req.setAttribute("name", user.getName());
         req.setAttribute("ip", user.getIp());
         req.setAttribute("numberOfGames", user.getNumberOfGames());
         req.setAttribute("answers", answers);
         req.setAttribute("finish", finish);
-
 
         getServletContext().getRequestDispatcher("/game.jsp").forward(req, resp);
 
@@ -57,14 +60,10 @@ public class GameServlet extends HttpServlet {
             numberOfGames = numberOfGames + 1;
             user.setNumberOfGames(numberOfGames);
         }
-
-
-
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 
         if (!start.isWinner() && !start.isLooser() && !isNull(req.getParameter("nextQuestion"))) {
             start = start.getAnswers().get(Integer.parseInt(req.getParameter("nextQuestion"))).getNextQuestion();
@@ -74,12 +73,8 @@ public class GameServlet extends HttpServlet {
             finish = false;
 
             resp.sendRedirect("index.jsp");
-
-
         }
-
     }
-
 }
 
 

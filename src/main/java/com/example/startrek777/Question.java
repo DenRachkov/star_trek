@@ -1,12 +1,13 @@
 package com.example.startrek777;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
 @Builder
 @Data
+@AllArgsConstructor
+public
 class Question {
     private String text;
     private List<Answer> answers;

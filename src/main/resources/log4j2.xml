@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration status="info">
+
+    <Appenders>
+        <RollingFile name="LOCALHOST"
+                        fileName="C:\Users\Денис\IdeaProjects\startrek777\logs\logs.log"
+                        filePattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n">
+            <PatternLayout pattern="%d [%t] %-5p %c- %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.example.startrek777.servlets.IndexServlet" level="ALL" additivity="false">
+            <AppenderRef ref="LOCALHOST"/>
+            <AppenderRef ref="console"/>
+        </Logger>
+        >
+    </Loggers>
+</Configuration>

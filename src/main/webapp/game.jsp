@@ -21,23 +21,23 @@
         <input required type="radio" name="nextQuestion" value="${loop.index}"> ${answer}
         <br>
     </c:forEach>
-    <button type="submit">Выбрать</button>
+    <button type="submit"class="btn btn-success">Выбрать</button>
 </form>
 </c:if>
 <c:if test="${finish == true}">
     <h1>Конец игры!</h1>
     <form action="${pageContext.request.contextPath}/game" method="post" >
-        <input type="submit" value="Попробовать еще раз">
+        <input type="submit" value="Попробовать еще раз" class="btn btn-success">
     </form>
 </c:if>
     <img src="img/nlo.jpg" class="rounded mx-auto d-block"/>
 <br>
 
 <div class="card" style="width: 18rem;>
-    <h5 class="card-header">Статистика:</h5>
+    <h5 class="card-header"> Статистика:</h5>
     <div class="card-body">
-        <p class="card-text">Имя: ${name}</p>
-        <p class="card-text">Ip: ${ip}</p>
+        <p class="card-text">Имя в игре: ${name}</p>
+        <p class="card-text">Ip адрес: ${ip}</p>
         <p class="card-text">Кол-во игр: ${numberOfGames}</p>
     </div>
     </div>

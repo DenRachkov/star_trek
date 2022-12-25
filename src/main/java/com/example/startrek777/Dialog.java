@@ -51,7 +51,7 @@ public class Dialog {
             ))
             .build();
 
-    Question q7 = Question.builder()
+    public Question q7 = Question.builder()
             .text("Ты потерял память. Принять вызов НЛО?")
             .answers(List.of(
                     Answer.builder()
